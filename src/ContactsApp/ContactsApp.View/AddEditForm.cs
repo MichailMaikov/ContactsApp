@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ContactsApp.View
 {
-    public partial class Form1 : Form
+    public partial class AddEditForm : Form
     {
-        public Form1()
+        public AddEditForm()
         {
             InitializeComponent();
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
