@@ -68,14 +68,27 @@ namespace ContactsApp.View
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Help hp = new Help();
-            hp.Show();
-            Hide();
+            About hl = new About();
+            hl.Show();
         }
 
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            AddEditForm fr1 = new AddEditForm();
+            fr1.Show();
+            Hide();
+        }
 
+        private void editToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            AddEditForm fr1 = new AddEditForm();
+            fr1.Show();
+            Hide();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

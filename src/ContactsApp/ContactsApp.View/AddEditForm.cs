@@ -26,5 +26,29 @@ namespace ContactsApp.View
         {
 
         }
+
+        private void AddEditForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void OK_Click(object sender, EventArgs e)
+        {
+            MainForm fr1 = new MainForm();
+            fr1.Show();
+            Hide();
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            MainForm fr1 = new MainForm();
+            fr1.Show();
+            Hide();
+        }
     }
 }

@@ -34,30 +34,30 @@ namespace ContactsApp.View
             this.label1 = new System.Windows.Forms.Label();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.removeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.VK = new System.Windows.Forms.Label();
+            this.email = new System.Windows.Forms.Label();
+            this.Phone = new System.Windows.Forms.Label();
+            this.Birthday = new System.Windows.Forms.Label();
+            this.NewName = new System.Windows.Forms.Label();
+            this.Surname = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -86,12 +86,12 @@ namespace ContactsApp.View
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.splitContainer1.Panel2.Controls.Add(this.dateTimePicker1);
-            this.splitContainer1.Panel2.Controls.Add(this.label7);
-            this.splitContainer1.Panel2.Controls.Add(this.label6);
-            this.splitContainer1.Panel2.Controls.Add(this.label5);
-            this.splitContainer1.Panel2.Controls.Add(this.label4);
-            this.splitContainer1.Panel2.Controls.Add(this.label3);
-            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.VK);
+            this.splitContainer1.Panel2.Controls.Add(this.email);
+            this.splitContainer1.Panel2.Controls.Add(this.Phone);
+            this.splitContainer1.Panel2.Controls.Add(this.Birthday);
+            this.splitContainer1.Panel2.Controls.Add(this.NewName);
+            this.splitContainer1.Panel2.Controls.Add(this.Surname);
             this.splitContainer1.Panel2.Controls.Add(this.textBox7);
             this.splitContainer1.Panel2.Controls.Add(this.textBox6);
             this.splitContainer1.Panel2.Controls.Add(this.textBox5);
@@ -129,117 +129,6 @@ namespace ContactsApp.View
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(156, 22);
             this.textBox1.TabIndex = 3;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(129, 95);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // label7
-            // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(32, 180);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 17);
-            this.label7.TabIndex = 11;
-            this.label7.Text = "vk.com";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(32, 152);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 17);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "E-mail";
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(49, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Phone";
-            // 
-            // label4
-            // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 96);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 17);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Birthday";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 68);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 40);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Surname";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // textBox7
-            // 
-            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox7.Location = new System.Drawing.Point(129, 177);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(340, 22);
-            this.textBox7.TabIndex = 5;
-            // 
-            // textBox6
-            // 
-            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox6.Location = new System.Drawing.Point(129, 149);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(340, 22);
-            this.textBox6.TabIndex = 4;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox5.Location = new System.Drawing.Point(129, 121);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(340, 22);
-            this.textBox5.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox3.Location = new System.Drawing.Point(129, 65);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(340, 22);
-            this.textBox3.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(129, 37);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(340, 22);
-            this.textBox2.TabIndex = 0;
             // 
             // button5
             // 
@@ -298,6 +187,13 @@ namespace ContactsApp.View
             this.editToolStripMenuItem.Text = "File";
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // editToolStripMenuItem1
             // 
             this.editToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -307,22 +203,6 @@ namespace ContactsApp.View
             this.editToolStripMenuItem1.Name = "editToolStripMenuItem1";
             this.editToolStripMenuItem1.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem1.Text = "Edit";
-            // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
-            this.helpToolStripMenuItem.Text = "Help";
-            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // addToolStripMenuItem
             // 
@@ -336,6 +216,7 @@ namespace ContactsApp.View
             this.editToolStripMenuItem2.Name = "editToolStripMenuItem2";
             this.editToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.editToolStripMenuItem2.Text = "Edit";
+            this.editToolStripMenuItem2.Click += new System.EventHandler(this.editToolStripMenuItem2_Click);
             // 
             // removeToolStripMenuItem
             // 
@@ -343,11 +224,132 @@ namespace ContactsApp.View
             this.removeToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.removeToolStripMenuItem.Text = "Remove";
             // 
-            // exitToolStripMenuItem
+            // helpToolStripMenuItem
             // 
-            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.exitToolStripMenuItem.Text = "Exit";
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Text = "Help";
+            this.helpToolStripMenuItem.Click += new System.EventHandler(this.helpToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(129, 95);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
+            this.dateTimePicker1.TabIndex = 12;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // VK
+            // 
+            this.VK.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.VK.AutoSize = true;
+            this.VK.Location = new System.Drawing.Point(32, 180);
+            this.VK.Name = "VK";
+            this.VK.Size = new System.Drawing.Size(52, 17);
+            this.VK.TabIndex = 11;
+            this.VK.Text = "vk.com";
+            this.VK.Click += new System.EventHandler(this.label7_Click);
+            // 
+            // email
+            // 
+            this.email.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.email.AutoSize = true;
+            this.email.Location = new System.Drawing.Point(32, 152);
+            this.email.Name = "email";
+            this.email.Size = new System.Drawing.Size(47, 17);
+            this.email.TabIndex = 10;
+            this.email.Text = "E-mail";
+            // 
+            // Phone
+            // 
+            this.Phone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Phone.AutoSize = true;
+            this.Phone.Location = new System.Drawing.Point(32, 124);
+            this.Phone.Name = "Phone";
+            this.Phone.Size = new System.Drawing.Size(49, 17);
+            this.Phone.TabIndex = 9;
+            this.Phone.Text = "Phone";
+            // 
+            // Birthday
+            // 
+            this.Birthday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Birthday.AutoSize = true;
+            this.Birthday.Location = new System.Drawing.Point(32, 96);
+            this.Birthday.Name = "Birthday";
+            this.Birthday.Size = new System.Drawing.Size(60, 17);
+            this.Birthday.TabIndex = 8;
+            this.Birthday.Text = "Birthday";
+            // 
+            // NewName
+            // 
+            this.NewName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.NewName.AutoSize = true;
+            this.NewName.Location = new System.Drawing.Point(32, 68);
+            this.NewName.Name = "NewName";
+            this.NewName.Size = new System.Drawing.Size(45, 17);
+            this.NewName.TabIndex = 7;
+            this.NewName.Text = "Name";
+            // 
+            // Surname
+            // 
+            this.Surname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.Surname.AutoSize = true;
+            this.Surname.Location = new System.Drawing.Point(32, 40);
+            this.Surname.Name = "Surname";
+            this.Surname.Size = new System.Drawing.Size(65, 17);
+            this.Surname.TabIndex = 6;
+            this.Surname.Text = "Surname";
+            this.Surname.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // textBox7
+            // 
+            this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox7.Location = new System.Drawing.Point(129, 177);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(340, 22);
+            this.textBox7.TabIndex = 5;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox6.Location = new System.Drawing.Point(129, 149);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(340, 22);
+            this.textBox6.TabIndex = 4;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox5.Location = new System.Drawing.Point(129, 121);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(340, 22);
+            this.textBox5.TabIndex = 3;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox3.Location = new System.Drawing.Point(129, 65);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(340, 22);
+            this.textBox3.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(129, 37);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(340, 22);
+            this.textBox2.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -381,12 +383,12 @@ namespace ContactsApp.View
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label VK;
+        private System.Windows.Forms.Label email;
+        private System.Windows.Forms.Label Phone;
+        private System.Windows.Forms.Label Birthday;
+        private System.Windows.Forms.Label NewName;
+        private System.Windows.Forms.Label Surname;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox5;

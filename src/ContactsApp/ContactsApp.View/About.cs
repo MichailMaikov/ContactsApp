@@ -21,5 +21,30 @@ namespace ContactsApp.View
         {
 
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Date_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkGitHub_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void About_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
