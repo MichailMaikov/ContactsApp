@@ -107,5 +107,11 @@
     <None Include="Resources\icons8-change-64.png" />
     <None Include="Resources\icons8-add-64.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ContactsApp.Model\ContactsApp.Model.csproj">
+      <Project>{27ad6728-d781-42d4-8c2d-2ee19eca18bb}</Project>
+      <Name>ContactsApp.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -65,6 +65,7 @@ namespace ContactsApp.View
             // 
             // Author
             // 
+            this.Author.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.Author.AutoSize = true;
             this.Author.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Author.Location = new System.Drawing.Point(55, 152);
@@ -103,9 +104,9 @@ namespace ContactsApp.View
             this.Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Date.Location = new System.Drawing.Point(61, 405);
             this.Date.Name = "Date";
-            this.Date.Size = new System.Drawing.Size(160, 20);
+            this.Date.Size = new System.Drawing.Size(177, 20);
             this.Date.TabIndex = 5;
-            this.Date.Text = "2022 Michail Maikov";
+            this.Date.Text = "2022 Michail Maikov ©";
             this.Date.Click += new System.EventHandler(this.Date_Click);
             // 
             // linkEmail
