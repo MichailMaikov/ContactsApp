@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContactsApp.Model;
 
 namespace ContactsApp.View
 {
@@ -40,15 +41,18 @@ namespace ContactsApp.View
         private void OK_Click(object sender, EventArgs e)
         {
             MainForm fr1 = new MainForm();
-            fr1.Show();
-            Hide();
+            this.Close();
         }
 
         private void Cancel_Click(object sender, EventArgs e)
         {
             MainForm fr1 = new MainForm();
-            fr1.Show();
-            Hide();
+            this.Close();
+        }
+
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
