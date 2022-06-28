@@ -6,9 +6,15 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
+    /// <summary>
+    /// Список всех контактов, созданных в приложении.
+    /// </summary>
     public class Project
     {
-        private List<Contact> _contacts = new List<Contact>();
-        public List<Contact> Contacts { get; set; }
+        /// <summary>
+        /// Список всех контактов.
+        /// </summary>
+        public List<Contact> Contacts { get; set; } = new List<Contact>();
+
     }
 }

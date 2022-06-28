@@ -6,132 +6,153 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-    public class Contact
-    {
-     /// <summary>
-     /// Максимальная длина строк: _name, _surname, _mail
-     /// </summary>
-    private const int _MAX_LENGTH = 50;
+        /// <summary>
+        /// Контакт.
+        /// </summary>
+         public class Contact : ICloneable
+         {
+        /// <summary>
+        /// Максимальная длина строк: _name, _surname, _mail.
+        /// </summary>
+        private const int MAXLETTERCOUNT = 50;
 
-    /// <summary>
-    /// Имя контакта
-    /// </summary>
-    private string _name;
+        /// <summary>
+        /// Максимальная длина _vlId.
+        /// </summary>
+        private const int MAXIDSIZE = 15;
 
-    /// <summary>
-    /// Фамилия контакта
-    /// </summary>
-    private string _surname;
+        /// <summary>
+        /// Имя контакта.
+        /// </summary>
+        private string _name;
 
-    /// <summary>
-    /// Номер телефона
-    /// </summary>
-    private NumberPhone _numberPhone;
+        /// <summary>
+        /// Фамилия контакта.
+        /// </summary>
+        private string _surname;
 
+        /// <summary>
+        /// Дата рождения.
+        /// </summary>
+        private DateTime _dateOfBirth;
 
-    /// <summary>
-    /// Дата рождения
-    /// </summary>
-    private DateTime _dateOfBirth;
+        /// <summary>
+        /// Почта.
+        /// </summary>
+        private string _mail;
 
-    /// <summary>
-    /// Почта
-    /// </summary>
-    private string _mail;
+        /// <summary>
+        /// Вк id.
+        /// </summary>
+        private string _vkId;
 
-    /// <summary>
-    /// Вк id
-    /// </summary>
-    private string _vkId;
-
-    /// <summary>
-    /// Возвращает строку, где первый символ возведен в верхний регистр
-    /// </summary>
-    /// <param name="str"></param>
-    /// <returns></returns>
-    private static string FirstLetterToUpper(string str)
-    {
-        return Char.ToUpper(str[0]) + str.Substring(1);
-    }
-
-    /// <summary>
-    /// Возвращает строку, если она не превышает максимально допустимую длину, иначе - исключение
-    /// </summary>
-    /// <param name="str"></param>
-    /// <param name="maxLength"></param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentException"></exception>
-    private static string CheckMaxLengthString(string str, int maxLength)
-    {
-        if (str.Length > maxLength)
+        /// <summary>
+        /// Возвращает строку, где первый символ возведен в верхний регистр.
+        /// </summary>
+        /// <param name="value">Строка</param>
+        /// <returns></returns>
+        private static string FirstLetterToUpper(string value)
         {
-            throw new ArgumentException($"The maximum number of characters is {maxLength}");
+            return Char.ToUpper(value[0]) + value.Substring(1);
         }
-        return str;
-    }
 
-    public string Name
-    {
-        get => _name;
-        set
+        /// <summary>
+        /// Возвращает строку, если она не превышает максимально допустимую длину, иначе - исключение.
+        /// </summary>
+        /// <param name="value">Строка</param>
+        /// <param name="maxLength">Максимальный размер строки</param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
+        private static string CheckMaxLengthString(string value, int maxLength)
         {
-            _name = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
-        }
-    }
-
-    public string Surname
-    {
-        get => _surname;
-        set
-        {
-            _surname = FirstLetterToUpper(CheckMaxLengthString(value, _MAX_LENGTH));
-        }
-    }
-
-
-    public NumberPhone PhoneNumber { get; set; }
-
-    public DateTime DateOfBirth
-    {
-        get => _dateOfBirth;
-        set
-        {
-            if (value > DateTime.Now || value.Year < 1900)
+            if (value.Length > maxLength)
             {
-                throw new ArgumentException("The date cannot be greater than today and less than 1900");
+                throw new ArgumentException($"The maximum number of characters is {maxLength}");
             }
-            _dateOfBirth = value;
+            return value;
         }
-    }
 
-    public string Mail
-    {
-        get => _mail;
-        set
+        /// <summary>
+        /// Геттер и Сеттер для _name.
+        /// </summary>
+        public string Name
         {
-            _mail = CheckMaxLengthString(value, _MAX_LENGTH);
+            get => _name;
+            set => _name = FirstLetterToUpper(CheckMaxLengthString(value, MAXLETTERCOUNT));
         }
-    }
 
-    public string VkId
-    {
-        get => _vkId;
-        set
+        /// <summary>
+        /// Геттер и Сеттер для _surname.
+        /// </summary>
+        public string Surname
         {
-            _vkId = CheckMaxLengthString(value, 15); ;
+            get => _surname;
+            set => _surname = FirstLetterToUpper(CheckMaxLengthString(value, MAXLETTERCOUNT));
         }
-    }
 
-    public Contact(string name, string surname, NumberPhone phoneNumber, DateTime dateOfBirth, string mail, string vkId)
-    {
-        Name = name;
-        Surname = surname;
-        PhoneNumber = phoneNumber;
-        DateOfBirth = dateOfBirth;
-        Mail = mail;
-        VkId = vkId;
+        /// <summary>
+        /// Геттер и Сеттер для _phoneNumber.
+        /// </summary>
+        public PhoneNumber PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Геттер и Сеттер для _dateOfBirth.
+        /// </summary>
+        public DateTime DateOfBirth
+        {
+            get => _dateOfBirth;
+            set
+            {
+                if (value > DateTime.Now || value.Year < 1900)
+                {
+                    throw new ArgumentException("The date cannot be greater than today and less than 1900");
+                }
+                _dateOfBirth = value;
+            }
+        }
+
+        /// <summary>
+        /// Геттер и Сеттер для _email.
+        /// </summary>
+        public string Mail
+        {
+            get => _mail;
+            set => _mail = CheckMaxLengthString(value, MAXLETTERCOUNT);
+        }
+
+        /// <summary>
+        /// Геттер и Сеттер для _vkId.
+        /// </summary>
+        public string VkId
+        {
+            get => _vkId;
+            set => _vkId = CheckMaxLengthString(value, MAXIDSIZE);
+        }
+
+        /// <summary>
+        /// Конструктор для контакта.
+        /// </summary>
+        /// <param name="name">Имя</param>
+        /// <param name="surname">фамилия</param>
+        /// <param name="phoneNumber">Номер телефона, начинается с 7 максимум 11 символов</param>
+        /// <param name="dateOfBirth">Дата рождения</param>
+        /// <param name="mail">Почта</param>
+        /// <param name="vkId">Вк id</param>
+        public Contact(string name, string surname, PhoneNumber phoneNumber, DateTime dateOfBirth, string mail, string vkId)
+        {
+            Name = name;
+            Surname = surname;
+            PhoneNumber = phoneNumber;
+            DateOfBirth = dateOfBirth;
+            Mail = mail;
+            VkId = vkId;
+        }
+
+        /// <summary>
+        /// Создает клон контакта.
+        /// </summary>
+        /// <returns></returns>
+        public Object Clone() =>
+            new Contact(Name, Surname, new PhoneNumber(PhoneNumber.Number), DateOfBirth, Mail, VkId);
     }
-    public object Clone() =>
-        new Contact(Name, Surname, new NumberPhone(PhoneNumber.Number), DateOfBirth, Mail, VkId);
-}
 }

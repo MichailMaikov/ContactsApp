@@ -37,18 +37,18 @@ namespace ContactsApp.View
             this.EditButton = new System.Windows.Forms.Button();
             this.RemoveButton = new System.Windows.Forms.Button();
             this.AddButton = new System.Windows.Forms.Button();
-            this.BirthdayTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.DateOfBirthBox = new System.Windows.Forms.DateTimePicker();
             this.VKLabel = new System.Windows.Forms.Label();
             this.EmailLabel = new System.Windows.Forms.Label();
             this.PhoneLabel = new System.Windows.Forms.Label();
             this.DateOfBirthLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.SurnameLabel = new System.Windows.Forms.Label();
-            this.VKTextBox = new System.Windows.Forms.TextBox();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
-            this.PhoneTextBox = new System.Windows.Forms.TextBox();
-            this.NameTextBox = new System.Windows.Forms.TextBox();
-            this.SurnameTextBox = new System.Windows.Forms.TextBox();
+            this.VKBox = new System.Windows.Forms.TextBox();
+            this.EmailBox = new System.Windows.Forms.TextBox();
+            this.NumberPhoneBox = new System.Windows.Forms.TextBox();
+            this.NameBox = new System.Windows.Forms.TextBox();
+            this.SurNameBox = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ExitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,18 +85,18 @@ namespace ContactsApp.View
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.Color.Transparent;
-            this.splitContainer1.Panel2.Controls.Add(this.BirthdayTimePicker);
+            this.splitContainer1.Panel2.Controls.Add(this.DateOfBirthBox);
             this.splitContainer1.Panel2.Controls.Add(this.VKLabel);
             this.splitContainer1.Panel2.Controls.Add(this.EmailLabel);
             this.splitContainer1.Panel2.Controls.Add(this.PhoneLabel);
             this.splitContainer1.Panel2.Controls.Add(this.DateOfBirthLabel);
             this.splitContainer1.Panel2.Controls.Add(this.NameLabel);
             this.splitContainer1.Panel2.Controls.Add(this.SurnameLabel);
-            this.splitContainer1.Panel2.Controls.Add(this.VKTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.EmailTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.PhoneTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.NameTextBox);
-            this.splitContainer1.Panel2.Controls.Add(this.SurnameTextBox);
+            this.splitContainer1.Panel2.Controls.Add(this.VKBox);
+            this.splitContainer1.Panel2.Controls.Add(this.EmailBox);
+            this.splitContainer1.Panel2.Controls.Add(this.NumberPhoneBox);
+            this.splitContainer1.Panel2.Controls.Add(this.NameBox);
+            this.splitContainer1.Panel2.Controls.Add(this.SurNameBox);
             this.splitContainer1.Size = new System.Drawing.Size(798, 415);
             this.splitContainer1.SplitterDistance = 313;
             this.splitContainer1.TabIndex = 0;
@@ -144,7 +144,7 @@ namespace ContactsApp.View
             this.EditButton.Size = new System.Drawing.Size(45, 45);
             this.EditButton.TabIndex = 1;
             this.EditButton.UseVisualStyleBackColor = true;
-            this.EditButton.Click += new System.EventHandler(this.button5_Click);
+            this.EditButton.Click += new System.EventHandler(this.EditButton_Click);
             // 
             // RemoveButton
             // 
@@ -174,17 +174,17 @@ namespace ContactsApp.View
             this.AddButton.Size = new System.Drawing.Size(45, 45);
             this.AddButton.TabIndex = 0;
             this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.button4_Click);
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
-            // BirthdayTimePicker
+            // DateOfBirthBox
             // 
-            this.BirthdayTimePicker.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.DateOfBirthBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BirthdayTimePicker.Location = new System.Drawing.Point(107, 59);
-            this.BirthdayTimePicker.Name = "BirthdayTimePicker";
-            this.BirthdayTimePicker.Size = new System.Drawing.Size(362, 22);
-            this.BirthdayTimePicker.TabIndex = 12;
-            this.BirthdayTimePicker.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.DateOfBirthBox.Location = new System.Drawing.Point(107, 59);
+            this.DateOfBirthBox.Name = "DateOfBirthBox";
+            this.DateOfBirthBox.Size = new System.Drawing.Size(362, 22);
+            this.DateOfBirthBox.TabIndex = 12;
+            this.DateOfBirthBox.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // VKLabel
             // 
@@ -253,52 +253,52 @@ namespace ContactsApp.View
             this.SurnameLabel.Size = new System.Drawing.Size(69, 17);
             this.SurnameLabel.TabIndex = 6;
             this.SurnameLabel.Text = "Surname:";
-            this.SurnameLabel.Click += new System.EventHandler(this.label2_Click);
+            this.SurnameLabel.Click += new System.EventHandler(this.NameBox_Click);
             // 
-            // VKTextBox
+            // VKBox
             // 
-            this.VKTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.VKBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.VKTextBox.Location = new System.Drawing.Point(107, 143);
-            this.VKTextBox.Name = "VKTextBox";
-            this.VKTextBox.Size = new System.Drawing.Size(362, 22);
-            this.VKTextBox.TabIndex = 5;
+            this.VKBox.Location = new System.Drawing.Point(107, 143);
+            this.VKBox.Name = "VKBox";
+            this.VKBox.Size = new System.Drawing.Size(362, 22);
+            this.VKBox.TabIndex = 5;
             // 
-            // EmailTextBox
+            // EmailBox
             // 
-            this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.EmailBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.EmailTextBox.Location = new System.Drawing.Point(107, 115);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(362, 22);
-            this.EmailTextBox.TabIndex = 4;
+            this.EmailBox.Location = new System.Drawing.Point(107, 115);
+            this.EmailBox.Name = "EmailBox";
+            this.EmailBox.Size = new System.Drawing.Size(362, 22);
+            this.EmailBox.TabIndex = 4;
             // 
-            // PhoneTextBox
+            // NumberPhoneBox
             // 
-            this.PhoneTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NumberPhoneBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.PhoneTextBox.Location = new System.Drawing.Point(107, 87);
-            this.PhoneTextBox.Name = "PhoneTextBox";
-            this.PhoneTextBox.Size = new System.Drawing.Size(362, 22);
-            this.PhoneTextBox.TabIndex = 3;
+            this.NumberPhoneBox.Location = new System.Drawing.Point(107, 87);
+            this.NumberPhoneBox.Name = "NumberPhoneBox";
+            this.NumberPhoneBox.Size = new System.Drawing.Size(362, 22);
+            this.NumberPhoneBox.TabIndex = 3;
             // 
-            // NameTextBox
+            // NameBox
             // 
-            this.NameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NameTextBox.Location = new System.Drawing.Point(107, 31);
-            this.NameTextBox.Name = "NameTextBox";
-            this.NameTextBox.Size = new System.Drawing.Size(362, 22);
-            this.NameTextBox.TabIndex = 1;
+            this.NameBox.Location = new System.Drawing.Point(107, 31);
+            this.NameBox.Name = "NameBox";
+            this.NameBox.Size = new System.Drawing.Size(362, 22);
+            this.NameBox.TabIndex = 1;
             // 
-            // SurnameTextBox
+            // SurNameBox
             // 
-            this.SurnameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.SurNameBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.SurnameTextBox.Location = new System.Drawing.Point(107, 3);
-            this.SurnameTextBox.Name = "SurnameTextBox";
-            this.SurnameTextBox.Size = new System.Drawing.Size(362, 22);
-            this.SurnameTextBox.TabIndex = 0;
+            this.SurNameBox.Location = new System.Drawing.Point(107, 3);
+            this.SurNameBox.Name = "SurNameBox";
+            this.SurNameBox.Size = new System.Drawing.Size(362, 22);
+            this.SurNameBox.TabIndex = 0;
             // 
             // menuStrip1
             // 
@@ -352,7 +352,7 @@ namespace ContactsApp.View
             this.EditToolStripMenuItem2.Name = "EditToolStripMenuItem2";
             this.EditToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
             this.EditToolStripMenuItem2.Text = "Edit";
-            this.EditToolStripMenuItem2.Click += new System.EventHandler(this.editToolStripMenuItem2_Click);
+            this.EditToolStripMenuItem2.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // RemoveToolStripMenuItem
             // 
@@ -416,12 +416,12 @@ namespace ContactsApp.View
         private System.Windows.Forms.Label DateOfBirthLabel;
         private System.Windows.Forms.Label NameLabel;
         private System.Windows.Forms.Label SurnameLabel;
-        private System.Windows.Forms.TextBox VKTextBox;
-        private System.Windows.Forms.TextBox EmailTextBox;
-        private System.Windows.Forms.TextBox PhoneTextBox;
-        private System.Windows.Forms.TextBox NameTextBox;
-        private System.Windows.Forms.TextBox SurnameTextBox;
-        private System.Windows.Forms.DateTimePicker BirthdayTimePicker;
+        private System.Windows.Forms.TextBox VKBox;
+        private System.Windows.Forms.TextBox EmailBox;
+        private System.Windows.Forms.TextBox NumberPhoneBox;
+        private System.Windows.Forms.TextBox NameBox;
+        private System.Windows.Forms.TextBox SurNameBox;
+        private System.Windows.Forms.DateTimePicker DateOfBirthBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem1;
