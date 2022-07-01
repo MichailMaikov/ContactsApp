@@ -1,7 +1,7 @@
 ﻿
 namespace ContactsApp.View
 {
-    partial class AddEditForm
+    partial class ContactForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace ContactsApp.View
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddEditForm));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ContactForm));
             this.SurnameLabel = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
             this.DateOfBirthLabel = new System.Windows.Forms.Label();
@@ -121,6 +121,7 @@ namespace ContactsApp.View
             this.NameBox.Name = "NameBox";
             this.NameBox.Size = new System.Drawing.Size(705, 22);
             this.NameBox.TabIndex = 6;
+            this.NameBox.TextChanged += new System.EventHandler(this.NameBox_TextChanged);
             // 
             // SurNameBox
             // 
@@ -130,6 +131,7 @@ namespace ContactsApp.View
             this.SurNameBox.Name = "SurNameBox";
             this.SurNameBox.Size = new System.Drawing.Size(705, 22);
             this.SurNameBox.TabIndex = 7;
+            this.SurNameBox.TextChanged += new System.EventHandler(this.SurNameBox_TextChanged);
             // 
             // EmailBox
             // 
@@ -139,7 +141,7 @@ namespace ContactsApp.View
             this.EmailBox.Name = "EmailBox";
             this.EmailBox.Size = new System.Drawing.Size(705, 22);
             this.EmailBox.TabIndex = 8;
-            this.EmailBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.EmailBox.TextChanged += new System.EventHandler(this.Mail_TextChanged);
             // 
             // NumberPhoneBox
             // 
@@ -192,7 +194,7 @@ namespace ContactsApp.View
             this.DateOfBirthBox.TabIndex = 11;
             this.DateOfBirthBox.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // AddEditForm
+            // ContactForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -212,7 +214,7 @@ namespace ContactsApp.View
             this.Controls.Add(this.NameLabel);
             this.Controls.Add(this.SurnameLabel);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "AddEditForm";
+            this.Name = "ContactForm";
             this.Text = "Add/Edit Contact";
             this.Load += new System.EventHandler(this.AddEditForm_Load);
             this.ResumeLayout(false);

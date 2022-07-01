@@ -122,6 +122,7 @@ namespace ContactsApp.View
             this.ContactsListBox.Name = "ContactsListBox";
             this.ContactsListBox.Size = new System.Drawing.Size(288, 321);
             this.ContactsListBox.TabIndex = 4;
+            this.ContactsListBox.SelectedIndexChanged += new System.EventHandler(this.ContactsListBox_SelectedIndexChanged);
             // 
             // FindText
             // 
@@ -326,7 +327,7 @@ namespace ContactsApp.View
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(116, 26);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.ExitToolStripMenuItem.Text = "Exit";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -343,22 +344,23 @@ namespace ContactsApp.View
             // AddToolStripMenuItem
             // 
             this.AddToolStripMenuItem.Name = "AddToolStripMenuItem";
-            this.AddToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.AddToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.AddToolStripMenuItem.Text = "Add";
             this.AddToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // EditToolStripMenuItem2
             // 
             this.EditToolStripMenuItem2.Name = "EditToolStripMenuItem2";
-            this.EditToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
+            this.EditToolStripMenuItem2.Size = new System.Drawing.Size(224, 26);
             this.EditToolStripMenuItem2.Text = "Edit";
             this.EditToolStripMenuItem2.Click += new System.EventHandler(this.editMainToolStripMenuItem_Click);
             // 
             // RemoveToolStripMenuItem
             // 
             this.RemoveToolStripMenuItem.Name = "RemoveToolStripMenuItem";
-            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
+            this.RemoveToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.RemoveToolStripMenuItem.Text = "Remove";
+            this.RemoveToolStripMenuItem.Click += new System.EventHandler(this.RemoveToolStripMenuItem_Click_1);
             // 
             // helpToolStripMenuItem
             // 
@@ -372,7 +374,7 @@ namespace ContactsApp.View
             // AboutToolStripMenuItem
             // 
             this.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem";
-            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(133, 26);
+            this.AboutToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.AboutToolStripMenuItem.Text = "About";
             this.AboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 

@@ -65,9 +65,9 @@ namespace ContactsApp.Model
         /// <exception cref="ArgumentException"></exception>
         private static string CheckMaxLengthString(string value, int maxLength)
         {
-            if (value.Length > maxLength)
+            if (value.Length > maxLength || value.Length == 0)
             {
-                throw new ArgumentException($"The maximum number of characters is {maxLength}");
+                throw new ArgumentException($"The maximum number of characters is {maxLength} and field should not be empty");
             }
             return value;
         }
@@ -103,9 +103,9 @@ namespace ContactsApp.Model
             get => _dateOfBirth;
             set
             {
-                if (value > DateTime.Now || value.Year < 1900)
+                if (value > DateTime.Now || value.Year < 1850)
                 {
-                    throw new ArgumentException("The date cannot be greater than today and less than 1900");
+                    throw new ArgumentException("The date cannot be greater than today and less than 1850");
                 }
                 _dateOfBirth = value;
             }
