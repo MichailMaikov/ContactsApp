@@ -161,6 +161,7 @@ namespace ContactsApp.View
             this.VKBox.Name = "VKBox";
             this.VKBox.Size = new System.Drawing.Size(705, 22);
             this.VKBox.TabIndex = 10;
+            this.VKBox.TextChanged += new System.EventHandler(this.VKBox_TextChanged_1);
             // 
             // OK
             // 

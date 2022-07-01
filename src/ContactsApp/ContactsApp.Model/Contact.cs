@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model
 {
-        /// <summary>
-        /// Контакт.
-        /// </summary>
-         public class Contact : ICloneable
-         {
+    /// <summary>
+    /// Контакт.
+    /// </summary>
+    public class Contact : ICloneable
+    {
         /// <summary>
         /// Максимальная длина строк: _name, _surname, _mail.
         /// </summary>

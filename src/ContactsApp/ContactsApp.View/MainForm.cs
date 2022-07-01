@@ -24,6 +24,9 @@ namespace ContactsApp.View
         {
             InitializeComponent();
             project = new Project();
+            AddRandomContact();
+            AddRandomContact();
+            AddRandomContact();
         }
 
         /// <summary>
@@ -42,7 +45,7 @@ namespace ContactsApp.View
         /// <summary>
         /// Добавляет новый контакт.
         /// </summary>
-        private void AddContact()
+        private void AddRandomContact()
         {
             string[] names = new string[3] { "Gomer", "Piter", "Eric" };
             string[] surnames = new string[3] { "Simpson", "Griffen", "Cartman" };
@@ -53,13 +56,62 @@ namespace ContactsApp.View
             Contact newContact = new Contact(
                 names[random.Next(names.Length)],
                 surnames[random.Next(surnames.Length)],
-                new PhoneNumber(random.Next()),
+                new PhoneNumber(79991234567),
                 DateTime.Now,
                 mails[random.Next(mails.Length)],
                 vkId[random.Next(vkId.Length)]);
-
+            ContactsListBox.Items.Add(newContact.Surname);
             project.Contacts.Add(newContact);
         }
+
+
+        /// <summary>
+        /// Добавляет контакта в список
+        /// </summary>
+        private void AddContact()
+        {
+            ContactForm contactForm = new ContactForm();
+            DialogResult result = contactForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                Contact newContact = contactForm.Contact;
+                project.Contacts.Add(newContact);
+            }
+
+        }
+
+
+        /// <summary>
+        /// Редактирует контакта в списке
+        /// </summary>
+        private void EditContact(int index)
+        {
+            if (ContactsListBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Choose contact");
+                return;
+            }
+
+            ContactForm contactForm = new ContactForm();
+
+            Contact selectedContact = project.Contacts[index];
+            contactForm.Contact = selectedContact;
+
+            DialogResult result = contactForm.ShowDialog();
+
+            if (result == DialogResult.OK)
+            {
+                Contact updateContact = contactForm.Contact;
+
+                ContactsListBox.Items.RemoveAt(index);
+                project.Contacts.RemoveAt(index);
+
+                project.Contacts.Insert(index, updateContact);
+                ContactsListBox.Items.Insert(index, updateContact.Surname);
+            }
+        }
+
 
         /// <summary>
         /// Удаляет контакт и обновляет ListBox.
@@ -151,16 +203,12 @@ namespace ContactsApp.View
         /// <param name="e"></param>
         private void EditButton_Click(object sender, EventArgs e)
         {
-            ContactForm Edit = new ContactForm();
-            Edit.ShowDialog();
-
+            EditContact(ContactsListBox.SelectedIndex);
         }
 
         private void editMainToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ContactForm Edit = new ContactForm();
-            Edit.ShowDialog();
-
+            EditContact(ContactsListBox.SelectedIndex);
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,7 +224,7 @@ namespace ContactsApp.View
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             About about = new About();
-            about.ShowDialog();
+            about.Show();
         }
 
         /// <summary>
@@ -208,7 +256,7 @@ namespace ContactsApp.View
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you really want to close application?",
-                "Message", MessageBoxButtons.OKCancel);
+               "Message", MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.OK)
             {
@@ -271,12 +319,15 @@ namespace ContactsApp.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e) =>
+        
+
+        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e) =>
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
 
-        private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
+        private void RemoveButton_Click_2(object sender, EventArgs e)
+        {
+            RemoveContact(ContactsListBox.SelectedIndex);
         }
     }
 }

@@ -21,6 +21,27 @@ namespace ContactsApp.View
 
 
         /// <summary>
+        /// Геттер и Сеттер для контакта
+        /// </summary>
+        public Contact Contact
+        {
+            get => _contact;
+            set
+            {
+                _contact = (Contact)value.Clone();
+                if (value != null)
+                {
+                    SurNameBox.Text = _contact.Surname;
+                    NameBox.Text = _contact.Name;
+                    DateOfBirthBox.Value = _contact.DateOfBirth;
+                    NumberPhoneBox.Text = _contact.PhoneNumber.Number.ToString();
+                    EmailBox.Text = _contact.Mail;
+                    VKBox.Text = _contact.VkId;
+                }
+            }
+        }
+
+        /// <summary>
         /// Сообщение об ошибке в поле _surname
         /// </summary>
         private string _surnameError;
@@ -79,33 +100,43 @@ namespace ContactsApp.View
         /// <summary>
         /// Проверяет есть ли ошибки валидации в полях
         /// </summary>
-        private void CheckFormOnErrors()
+        private bool CheckFormOnErrors()
         {
+            bool isValid = true;
             if (_surnameError != "")
             {
                 MessageBox.Show(_surnameError);
+                isValid = false;
             }
             if (_nameError != "")
             {
                 MessageBox.Show(_nameError);
+                isValid = false;
             }
             if (_dateOfBirthError != "")
             {
                 MessageBox.Show(_dateOfBirthError);
+                isValid = false;
             }
             if (_phoneNumberError != "")
             {
                 MessageBox.Show(_phoneNumberError);
+                isValid = false;
             }
             if (_mailError != "")
             {
                 MessageBox.Show(_mailError);
+                isValid = false;
             }
             if (_vkIdError != "")
             {
                 MessageBox.Show(_vkIdError);
+                isValid = false;
             }
+            return isValid;
         }
+
+
 
         private void Mail_TextChanged(object sender, EventArgs e)
         {
@@ -153,7 +184,11 @@ namespace ContactsApp.View
         /// </summary>
         private void OK_Click(object sender, EventArgs e)
         {
-            CheckFormOnErrors();
+            if (CheckFormOnErrors())
+            {
+                DialogResult = DialogResult.OK;
+                this.Close();
+            }
         }
 
 
@@ -162,7 +197,7 @@ namespace ContactsApp.View
         /// </summary>
         private void Cancel_Click(object sender, EventArgs e)
         {
-            MainForm fr1 = new MainForm();
+            DialogResult = DialogResult.Cancel;
             this.Close();
         }
 
@@ -222,6 +257,21 @@ namespace ContactsApp.View
         private void VKBox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void VKBox_TextChanged_1(object sender, EventArgs e)
+        {
+            try
+            {
+                _contact.VkId = VKBox.Text;
+                VKBox.BackColor = Color.White;
+                _vkIdError = "";
+            }
+            catch (Exception exception)
+            {
+                VKBox.BackColor = Color.LightPink;
+                _vkIdError = exception.Message;
+            }
         }
     }
 }
