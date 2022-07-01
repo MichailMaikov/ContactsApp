@@ -193,7 +193,7 @@ namespace ContactsApp.View
             this.DateOfBirthBox.Name = "DateOfBirthBox";
             this.DateOfBirthBox.Size = new System.Drawing.Size(705, 22);
             this.DateOfBirthBox.TabIndex = 11;
-            this.DateOfBirthBox.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            this.DateOfBirthBox.ValueChanged += new System.EventHandler(this.BirthdayTimePicker1_ValueChanged);
             // 
             // ContactForm
             // 

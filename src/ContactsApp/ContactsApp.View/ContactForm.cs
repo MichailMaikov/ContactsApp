@@ -87,6 +87,11 @@ namespace ContactsApp.View
             UpdateForm();
         }
 
+
+
+        /// <summary>
+        /// Обновляет поля формы.
+        /// </summary>
         private void UpdateForm()
         {
             SurNameBox.Text = _contact.Surname;
@@ -102,42 +107,44 @@ namespace ContactsApp.View
         /// </summary>
         private bool CheckFormOnErrors()
         {
-            bool isValid = true;
+            string textError = "";
             if (_surnameError != "")
             {
-                MessageBox.Show(_surnameError);
-                isValid = false;
+                textError += "Enter surname\n";
             }
             if (_nameError != "")
             {
-                MessageBox.Show(_nameError);
-                isValid = false;
+                textError += "Enter name\n";
             }
             if (_dateOfBirthError != "")
             {
-                MessageBox.Show(_dateOfBirthError);
-                isValid = false;
+                textError += "Enter date of birth\n";
             }
             if (_phoneNumberError != "")
             {
-                MessageBox.Show(_phoneNumberError);
-                isValid = false;
+                textError += "Enter phone number\n";
             }
             if (_mailError != "")
             {
-                MessageBox.Show(_mailError);
-                isValid = false;
+                textError += "Enter email\n";
             }
             if (_vkIdError != "")
             {
-                MessageBox.Show(_vkIdError);
-                isValid = false;
+                textError += "Enter vk id\n";
             }
-            return isValid;
+            if (textError != "")
+            {
+                MessageBox.Show(textError);
+                return false;
+            }
+            return true;
         }
 
 
 
+        /// <summary>
+        /// Отслеживает изменения в ContactMail.
+        /// </summary>
         private void Mail_TextChanged(object sender, EventArgs e)
         {
             try
@@ -163,7 +170,11 @@ namespace ContactsApp.View
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+
+        /// <summary>
+        /// Отслеживает изменения в ContactBirthday.
+        /// </summary>
+        private void BirthdayTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             try
             {
@@ -201,6 +212,10 @@ namespace ContactsApp.View
             this.Close();
         }
 
+
+        /// <summary>
+        /// Отслеживает изменения в ContactPhone.
+        /// </summary>
         private void PhoneTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -259,6 +274,10 @@ namespace ContactsApp.View
 
         }
 
+
+        /// <summary>
+        /// Отслеживает изменения в ContactVkId.
+        /// </summary>
         private void VKBox_TextChanged_1(object sender, EventArgs e)
         {
             try

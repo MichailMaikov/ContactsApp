@@ -29,9 +29,7 @@ namespace ContactsApp.View
         {
             InitializeComponent();
             Project = new Project();
-            AddRandomContact(0);
-            AddRandomContact(2);
-            AddRandomContact(1);
+            Project = ProjectManager.LoadFromFile();
             currentContacts = new List<Contact>(Project.SortBySurname());
             UpdateListBox();
         }
@@ -49,27 +47,6 @@ namespace ContactsApp.View
             }
         }
 
-        /// <summary>
-        /// Добавляет новый контакт.
-        /// </summary>
-        private void AddRandomContact(int index)
-        {
-            string[] names = new string[3] { "Gomer", "Piter", "Eric" };
-            string[] surnames = new string[3] { "Simpson", "Griffen", "Cartman" };
-            string[] mails = new string[3] { "gomer@gmail.com", "griffen@gmail.com", "erictop1@gmail.com" };
-            string[] vkId = new string[3] { "gomerS", "PiterGriffen", "besteric" };
-
-            Contact newContact = new Contact(
-                names[index],
-                surnames[index],
-                new PhoneNumber(78005553535),
-                DateTime.Now,
-                mails[index],
-                vkId[index]);
-            ContactsListBox.Items.Add(newContact.Surname);
-            Project.Contacts.Add(newContact);
-        }
-
 
         /// <summary>
         /// Добавляет контакта в список
@@ -84,7 +61,10 @@ namespace ContactsApp.View
                 Contact newContact = contactForm.Contact;
                 currentContacts.Add(newContact);
                 Project.Contacts.Add(newContact);
+                ProjectManager.SaveToFile(Project);
             }
+
+            ClearSelectedContact();
 
         }
 
@@ -123,7 +103,9 @@ namespace ContactsApp.View
                 Project.Contacts.Insert(contactIndex, updateContact);
 
                 ContactsListBox.Items.Insert(index, updateContact.Surname);
+                ProjectManager.SaveToFile(Project);
             }
+            ClearSelectedContact();
         }
 
 
@@ -136,7 +118,8 @@ namespace ContactsApp.View
         {
             if (index == -1)
             {
-                throw new ArgumentException("Item not selected");
+                MessageBox.Show("Item not selected");
+                return;
             }
 
             DialogResult result = MessageBox.Show($"Do you really want to remove {currentContacts[index].Surname}?",
@@ -148,7 +131,9 @@ namespace ContactsApp.View
 
                 currentContacts.RemoveAt(index);
                 Project.Contacts.RemoveAt(contactIndex);
+                ProjectManager.SaveToFile(Project);
             }
+            ClearSelectedContact();
         }
 
 
@@ -277,11 +262,12 @@ namespace ContactsApp.View
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Do you really want to close application?",
-               "Message", MessageBoxButtons.OKCancel);
+                "Message", MessageBoxButtons.OKCancel);
 
             if (result == DialogResult.OK)
             {
                 this.Close();
+                ProjectManager.SaveToFile(Project);
             }
         }
 
@@ -357,6 +343,7 @@ namespace ContactsApp.View
             string text = FindText.Text;
             currentContacts = Project.SearchBySurname(text);
             UpdateListBox();
+            ClearSelectedContact();
         }
     }
 }
