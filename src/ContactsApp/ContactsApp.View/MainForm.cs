@@ -90,16 +90,31 @@ namespace ContactsApp.View
         }
 
 
+
+        private void RemoveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// Вызывает функцию RemoveContact.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void RemoveButton_Click(object sender, EventArgs e)
+        private void RemoveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
         }
 
+        /// <summary>
+        /// Вызывает функцию RemoveContact.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RemoveButton_Click_1(object sender, EventArgs e)
+        {
+            RemoveContact(ContactsListBox.SelectedIndex);
+        }
 
         /// <summary>
         /// Добавляет контакт в ListBox и обновляет его.
@@ -139,14 +154,14 @@ namespace ContactsApp.View
 
         }
 
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editMainToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
-       
+
         }
 
         /// <summary>
@@ -176,9 +191,9 @@ namespace ContactsApp.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void removeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            RemoveContact(ContactsListBox.SelectedIndex);
+
         }
 
         /// <summary>
@@ -255,6 +270,6 @@ namespace ContactsApp.View
         private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e) =>
             UpdateSelectedContact(ContactsListBox.SelectedIndex);
 
-   
+
     }
 }

@@ -352,7 +352,7 @@ namespace ContactsApp.View
             this.EditToolStripMenuItem2.Name = "EditToolStripMenuItem2";
             this.EditToolStripMenuItem2.Size = new System.Drawing.Size(146, 26);
             this.EditToolStripMenuItem2.Text = "Edit";
-            this.EditToolStripMenuItem2.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
+            this.EditToolStripMenuItem2.Click += new System.EventHandler(this.editMainToolStripMenuItem_Click);
             // 
             // RemoveToolStripMenuItem
             // 
