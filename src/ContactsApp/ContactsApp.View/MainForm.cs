@@ -16,17 +16,24 @@ namespace ContactsApp.View
         /// <summary>
         /// Экземпляр класса Project.
         /// </summary>
-        private Project project { get; set; }
+        private Project Project { get; set; }
 
+
+        /// <summary>
+        /// Текущие объекты в списке
+        /// </summary>
+        private List<Contact> currentContacts;
 
 
         public MainForm()
         {
             InitializeComponent();
-            project = new Project();
-            AddRandomContact();
-            AddRandomContact();
-            AddRandomContact();
+            Project = new Project();
+            AddRandomContact(0);
+            AddRandomContact(2);
+            AddRandomContact(1);
+            currentContacts = new List<Contact>(Project.SortBySurname());
+            UpdateListBox();
         }
 
         /// <summary>
@@ -35,8 +42,8 @@ namespace ContactsApp.View
         private void UpdateListBox()
         {
             ContactsListBox.Items.Clear();
-
-            foreach (Contact contact in project.Contacts)
+            currentContacts = currentContacts.OrderBy(contact => contact.Surname).ToList();
+            foreach (Contact contact in currentContacts)
             {
                 ContactsListBox.Items.Add(contact.Surname);
             }
@@ -45,23 +52,22 @@ namespace ContactsApp.View
         /// <summary>
         /// Добавляет новый контакт.
         /// </summary>
-        private void AddRandomContact()
+        private void AddRandomContact(int index)
         {
             string[] names = new string[3] { "Gomer", "Piter", "Eric" };
             string[] surnames = new string[3] { "Simpson", "Griffen", "Cartman" };
             string[] mails = new string[3] { "gomer@gmail.com", "griffen@gmail.com", "erictop1@gmail.com" };
             string[] vkId = new string[3] { "gomerS", "PiterGriffen", "besteric" };
 
-            Random random = new Random();
             Contact newContact = new Contact(
-                names[random.Next(names.Length)],
-                surnames[random.Next(surnames.Length)],
-                new PhoneNumber(79991234567),
+                names[index],
+                surnames[index],
+                new PhoneNumber(78005553535),
                 DateTime.Now,
-                mails[random.Next(mails.Length)],
-                vkId[random.Next(vkId.Length)]);
+                mails[index],
+                vkId[index]);
             ContactsListBox.Items.Add(newContact.Surname);
-            project.Contacts.Add(newContact);
+            Project.Contacts.Add(newContact);
         }
 
 
@@ -76,7 +82,8 @@ namespace ContactsApp.View
             if (result == DialogResult.OK)
             {
                 Contact newContact = contactForm.Contact;
-                project.Contacts.Add(newContact);
+                currentContacts.Add(newContact);
+                Project.Contacts.Add(newContact);
             }
 
         }
@@ -87,7 +94,7 @@ namespace ContactsApp.View
         /// </summary>
         private void EditContact(int index)
         {
-            if (ContactsListBox.SelectedIndex == -1)
+            if (index == -1)
             {
                 MessageBox.Show("Choose contact");
                 return;
@@ -95,7 +102,7 @@ namespace ContactsApp.View
 
             ContactForm contactForm = new ContactForm();
 
-            Contact selectedContact = project.Contacts[index];
+            Contact selectedContact = currentContacts[index];
             contactForm.Contact = selectedContact;
 
             DialogResult result = contactForm.ShowDialog();
@@ -105,9 +112,16 @@ namespace ContactsApp.View
                 Contact updateContact = contactForm.Contact;
 
                 ContactsListBox.Items.RemoveAt(index);
-                project.Contacts.RemoveAt(index);
 
-                project.Contacts.Insert(index, updateContact);
+                int contactIndex = Project.Contacts.FindIndex(contact =>
+                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+                currentContacts.RemoveAt(index);
+                currentContacts.Insert(index, updateContact);
+
+                Project.Contacts.RemoveAt(contactIndex);
+                Project.Contacts.Insert(contactIndex, updateContact);
+
                 ContactsListBox.Items.Insert(index, updateContact.Surname);
             }
         }
@@ -125,12 +139,15 @@ namespace ContactsApp.View
                 throw new ArgumentException("Item not selected");
             }
 
-            DialogResult result = MessageBox.Show($"Do you really want to remove {project.Contacts[index].Surname}?",
+            DialogResult result = MessageBox.Show($"Do you really want to remove {currentContacts[index].Surname}?",
                 "Message", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
-                project.Contacts.RemoveAt(index);
-                UpdateListBox();
+                int contactIndex = Project.Contacts.FindIndex(contact =>
+                (contact.Surname == currentContacts[index].Surname && contact.PhoneNumber.Number == currentContacts[index].PhoneNumber.Number));
+
+                currentContacts.RemoveAt(index);
+                Project.Contacts.RemoveAt(contactIndex);
             }
         }
 
@@ -157,6 +174,7 @@ namespace ContactsApp.View
         private void RemoveButton_Click_1(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
 
@@ -168,6 +186,7 @@ namespace ContactsApp.View
         private void RemoveToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         /// <summary>
@@ -204,11 +223,13 @@ namespace ContactsApp.View
         private void EditButton_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         private void editMainToolStripMenuItem_Click(object sender, EventArgs e)
         {
             EditContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
@@ -304,7 +325,7 @@ namespace ContactsApp.View
                 return;
             }
 
-            Contact contact = project.Contacts[index];
+            Contact contact = currentContacts[index];
 
             SurNameBox.Text = contact.Surname;
             NameBox.Text = contact.Name;
@@ -328,6 +349,14 @@ namespace ContactsApp.View
         private void RemoveButton_Click_2(object sender, EventArgs e)
         {
             RemoveContact(ContactsListBox.SelectedIndex);
+            UpdateListBox();
+        }
+
+        private void FindText_TextChanged(object sender, EventArgs e)
+        {
+            string text = FindText.Text;
+            currentContacts = Project.SearchBySurname(text);
+            UpdateListBox();
         }
     }
 }

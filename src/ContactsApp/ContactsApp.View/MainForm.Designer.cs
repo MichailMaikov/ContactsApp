@@ -132,6 +132,7 @@ namespace ContactsApp.View
             this.FindText.Name = "FindText";
             this.FindText.Size = new System.Drawing.Size(243, 22);
             this.FindText.TabIndex = 3;
+            this.FindText.TextChanged += new System.EventHandler(this.FindText_TextChanged);
             // 
             // EditButton
             // 
